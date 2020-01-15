@@ -1,4 +1,4 @@
-var nomeCanal = 'RiotGamesInc';
+var nomeCanal = 'WarnerBrosPictures';
 var upload_id;
 
 $(document).ready  (function (){
@@ -23,14 +23,24 @@ $(document).ready  (function (){
         function (data) {
             var imagem;
             var arquivo;
+            var titulo;
+            var data;
+            var videoId;
             $.each(data.items, function(i, item){
                 imagem = item.snippet.thumbnails.medium.url;
-                arquivo = '<li class="principal"><img src="'+ imagem + '" /></li>';
+                titulo = item.snippet.title;
+                data = formatarData(item.snippet.publishedAt);
+                videoId = item.snippet.resourceId.videoId;
+                arquivo = '<li class="principal"><a class="fancybox-media" href="https://www.youtube.com/watch?v=' + videoId + '"> <div class="foto"><img src="'+ imagem + '" /><div class="legenda"><h5> '+ titulo +' </h5><p>Data:'+ data +'</p></div></div></a></li>';
                 $('div#janela ul').append(arquivo);
             });
         }
 
         )
+    }
+
+    function formatarData (data) {
+        return data.substr(8,2) + '/' + data.substr(5,2) + '/' + data.substr(0,4);
     }
 
 });

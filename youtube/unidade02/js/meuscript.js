@@ -24,7 +24,7 @@ $(document).ready(function() {
                 
                 $.each(data.items, function(i, item) {
                     videoId     = item.snippet.resourceId.videoId;
-                    arquivo = '<li></li>';
+                    arquivo = '<li><iframe width="320" height="180" src="https://www.youtube.com/embed/' + videoId +'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>';
                     $('div#janela ul').append(arquivo);
                 });
             }

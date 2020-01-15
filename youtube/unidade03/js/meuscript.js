@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    $.get("", {
-            part: '',
-            id: '',
-            key: 'AIzaSyB49WfTkgfK2menTbmVCkLG0f9cYWQ9XKU'},
+    $.get("https://www.googleapis.com/youtube/v3/videos", {
+            part: 'statistics',
+            id: 'CVuyTQN7yjc',
+            key: 'AIzaSyATz0oIlbrbn5bXTlXFXP2fb4t6TQVsqmM'},
             function(data) {
                 console.log(data);
             }
